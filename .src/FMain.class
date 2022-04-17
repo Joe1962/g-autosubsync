@@ -1,0 +1,146 @@
+' Gambas class file
+
+Private $hAutoSubSync As Process
+Private $OutputDir As String
+
+
+Public Sub Form_Open()
+
+   Me.Center
+
+End
+
+Public Sub Form_Close()
+   
+   If $hAutoSubSync
+      If $hAutoSubSync.State = Process.Running Then
+         Stop Event
+         Message("Please wait")
+      Endif 
+   Endif
+   
+End
+
+Public Sub ToolButton1_Click()
+
+   TextBox1.text = Global.GetFile()
+
+End
+
+Public Sub ToolButton2_Click()
+
+   TextBox2.text = Global.GetFile()
+
+End
+
+Public Sub ToolButton3_Click()
+
+   TextBox3.text = Global.GetDir()
+   If TextBox4.Length = 0 Then 
+      TextBox4.Text = TextBox3.Text
+   Endif
+
+End
+
+Public Sub ToolButton4_Click()
+
+   TextBox4.text = Global.GetDir()
+
+End
+
+Public Sub ToolButton5_Click()
+
+   TextBox5.text = Global.GetDir()
+   If TextBox6.Length = 0 Then 
+      TextBox6.Text = TextBox5.Text
+   Endif
+
+End
+
+Public Sub ToolButton6_Click()
+
+   TextBox6.text = Global.GetDir()
+
+End
+
+Public Sub Button1_Click()
+
+   If TextBox1.Length = 0 Or TextBox2.Length = 0 Then
+      Message.Warning("You need to select the Video and Sub files")
+   Else
+      'autosubsync single video:
+      $OutputDir = File.Dir(TextBox1.text)
+      DisableButtons()
+      myterm.Clear
+      $hAutoSubSync = Exec ["autosubsync", TextBox1.Text, TextBox2.Text, $OutputDir & "/output.srt"] For Read As "AutoSubSync"
+      Do
+         Wait
+      Loop While $hAutoSubSync.State = Process.Running
+      EnableButtons()
+   Endif
+
+   Message.Info("Synced subtitle saved as " & $OutputDir & "/output.srt")
+
+End
+
+Public Sub Button2_Click()
+
+   If TextBox3.Length = 0 Or TextBox4.Length = 0 Then
+      Message.Warning("You need to select the Videos and Subs directories")
+   Endif
+
+   'batch autosubsync:
+   DisableButtons()
+   myterm.Clear
+   $hAutoSubSync = Exec ["autosubsync"] For Read As "AutoSubSync"
+   Do
+      Wait
+   Loop While $hAutoSubSync.State = Process.Running
+   EnableButtons()
+
+End
+
+Public Sub Button3_Click()
+
+   If TextBox5.Length = 0 Or TextBox6.Length = 0 Then
+      Message.Warning("You need to select the Videos and Subs directories")
+   Endif
+
+   'train autosubsync:
+   DisableButtons()
+   myterm.Clear
+   $hAutoSubSync = Exec ["autosubsync"] For Read As "AutoSubSync"
+   Do
+      Wait
+   Loop While $hAutoSubSync.State = Process.Running
+   EnableButtons()
+   
+End
+
+Public Sub AutoSubSync_Read()
+  Dim sLine As String
+
+  Read #Last, sLine, -256
+   'Print sLine
+   myterm.Pos = myterm.Length
+   myterm.Insert(sLine) '& gb.CrLf
+   myterm.Pos = myterm.Length
+   myterm.EnsureVisible()
+
+End
+
+Public Sub EnableButtons()
+   
+   Button1.enabled = True
+   Button2.enabled = True
+   Button3.enabled = True
+   
+End
+
+Public Sub DisableButtons()
+   
+   Button1.enabled = False
+   Button2.enabled = False
+   Button3.enabled = False
+
+End

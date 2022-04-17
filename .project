@@ -1,0 +1,19 @@
+# Gambas Project File 3.0
+Title=g-autosubsync
+Startup=FMain
+Version=0.0.1
+Component=gb.image
+Component=gb.gui
+Component=gb.form
+TabSize=3
+Language=en_US
+Maintainer=joe1962
+Address=joe1962@gmail.com
+License=General Public License
+PackageName=g-autosubsync-0.0.1
+RuntimeVersion="3.16"
+Packager=1
+Systems=ubuntu
+Menus=ubuntu:"Applications/Video"
+Categories=ubuntu:"Video"
+Groups=ubuntu:"video"

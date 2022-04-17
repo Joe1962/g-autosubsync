@@ -1,0 +1,110 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,67,67)
+  Icon = Picture["gambas3.png"]
+  { TabStrip1 TabStrip
+    MoveScaled(0,0,67,26)
+    Count = 3
+    Index = 0
+    Text = ("Sync")
+    { Frame1 Frame
+      MoveScaled(1,0,65,7)
+      Text = ("Video file")
+      { ToolButton1 ToolButton
+        MoveScaled(60,2,4,4)
+        Picture = Picture["folder.png"]
+      }
+      { TextBox1 TextBox
+        MoveScaled(1,2,59,4)
+        ReadOnly = True
+      }
+    }
+    { Frame2 Frame
+      MoveScaled(1,8,65,7)
+      Text = ("Sub file")
+      { ToolButton2 ToolButton
+        MoveScaled(60,2,4,4)
+        Picture = Picture["folder.png"]
+      }
+      { TextBox2 TextBox
+        MoveScaled(1,2,59,4)
+        ReadOnly = True
+      }
+    }
+    { Button1 Button
+      MoveScaled(28,16,11,5)
+      Text = ("Sync")
+    }
+    Index = 1
+    Text = ("Batch")
+    { Frame3 Frame
+      MoveScaled(1,0,65,7)
+      Text = ("Videos dir")
+      { ToolButton3 ToolButton
+        MoveScaled(60,2,4,4)
+        Picture = Picture["folder.png"]
+      }
+      { TextBox3 TextBox
+        MoveScaled(1,2,59,4)
+        ReadOnly = True
+      }
+    }
+    { Frame4 Frame
+      MoveScaled(1,8,65,7)
+      Text = ("Subs dir")
+      { ToolButton4 ToolButton
+        MoveScaled(60,2,4,4)
+        Picture = Picture["folder.png"]
+      }
+      { TextBox4 TextBox
+        MoveScaled(1,2,59,4)
+        ReadOnly = True
+      }
+    }
+    { Button2 Button
+      MoveScaled(28,16,11,5)
+      Text = ("Sync")
+    }
+    Index = 2
+    Text = ("Train")
+    { Frame5 Frame
+      MoveScaled(1,0,65,7)
+      Text = ("Videos dir")
+      { ToolButton5 ToolButton
+        MoveScaled(60,2,4,4)
+        Picture = Picture["folder.png"]
+      }
+      { TextBox5 TextBox
+        MoveScaled(1,2,59,4)
+        ReadOnly = True
+      }
+    }
+    { Frame6 Frame
+      MoveScaled(1,8,65,7)
+      Text = ("Subs dir")
+      { ToolButton6 ToolButton
+        MoveScaled(60,2,4,4)
+        Picture = Picture["folder.png"]
+      }
+      { TextBox6 TextBox
+        MoveScaled(1,2,59,4)
+        ReadOnly = True
+      }
+    }
+    { Button3 Button
+      MoveScaled(28,16,11,5)
+      Text = ("Train")
+    }
+    Index = 0
+  }
+  { myterm TextArea
+    MoveScaled(0,26,67,41)
+    Background = Color.Black
+    Foreground = Color.Green
+    Expand = True
+    ReadOnly = True
+    Wrap = True
+    Border = False
+  }
+}

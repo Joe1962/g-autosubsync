@@ -1,0 +1,22 @@
+' Gambas module file
+
+Public Function GetFile() As String
+   'Image file selection dialog:
+   dialog.path = System.User.Home
+   If dialog.openfile() = False Then
+      Return dialog.path
+   Else
+      'RETURN ""
+   Endif
+End
+
+Public Function GetDir() As String
+   'Image file selection dialog:
+   dialog.path = System.User.Home
+   If Dialog.SelectDirectory() = False Then
+      Return dialog.path
+   Else
+      'RETURN ""
+   Endif
+End
+
