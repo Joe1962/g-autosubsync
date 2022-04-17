@@ -76,10 +76,9 @@ Public Sub Button1_Click()
       Do
          Wait
       Loop While $hAutoSubSync.State = Process.Running
+      Message.Info("Synced subtitle saved as " & $OutputDir & "/output.srt")
       EnableButtons()
    Endif
-
-   Message.Info("Synced subtitle saved as " & $OutputDir & "/output.srt")
 
 End
 
