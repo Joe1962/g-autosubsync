@@ -1,0 +1,3 @@
+- Save window size and position on exit.
+- Implement batch processing tab.
+- Implement training tab (maybe, since autosubsync comes pre-trained).
