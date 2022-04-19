@@ -21,58 +21,58 @@ Public Sub Form_Close()
    
 End
 
-Public Sub ToolButton1_Click()
+Public Sub tbtVideoSync_Click()
 
-   TextBox1.text = Global.GetFile()
+   txtVideoSync.text = Global.GetFile()
 
 End
 
-Public Sub ToolButton2_Click()
+Public Sub tbtSubSync_Click()
 
-   TextBox2.text = Global.GetFile()
+   txtSubSync.text = Global.GetFile()
 
 End
 
 Public Sub ToolButton3_Click()
 
-   TextBox3.text = Global.GetDir()
-   If TextBox4.Length = 0 Then 
-      TextBox4.Text = TextBox3.Text
+   txtVideoDirBatch.text = Global.GetDir()
+   If txtSubDirBatch.Length = 0 Then 
+      txtSubDirBatch.Text = txtVideoDirBatch.Text
    Endif
 
 End
 
 Public Sub ToolButton4_Click()
 
-   TextBox4.text = Global.GetDir()
+   txtSubDirBatch.text = Global.GetDir()
 
 End
 
 Public Sub ToolButton5_Click()
 
-   TextBox5.text = Global.GetDir()
-   If TextBox6.Length = 0 Then 
-      TextBox6.Text = TextBox5.Text
+   txtVideoDirTrain.text = Global.GetDir()
+   If txtSubDirTrain.Length = 0 Then 
+      txtSubDirTrain.Text = txtVideoDirTrain.Text
    Endif
 
 End
 
 Public Sub ToolButton6_Click()
 
-   TextBox6.text = Global.GetDir()
+   txtSubDirTrain.text = Global.GetDir()
 
 End
 
-Public Sub Button1_Click()
+Public Sub butSync_Click()
 
-   If TextBox1.Length = 0 Or TextBox2.Length = 0 Then
+   If txtVideoSync.Length = 0 Or txtSubSync.Length = 0 Then
       Message.Warning("You need to select the Video and Sub files")
    Else
       'autosubsync single video:
-      $OutputDir = File.Dir(TextBox1.text)
+      $OutputDir = File.Dir(txtVideoSync.text)
       DisableButtons()
-      myterm.Clear
-      $hAutoSubSync = Exec ["autosubsync", TextBox1.Text, TextBox2.Text, $OutputDir & "/output.srt"] For Read As "AutoSubSync"
+      txaTerm.Clear
+      $hAutoSubSync = Exec ["autosubsync", txtVideoSync.Text, txtSubSync.Text, $OutputDir & "/output.srt"] For Read As "AutoSubSync"
       Do
          Wait
       Loop While $hAutoSubSync.State = Process.Running
@@ -84,13 +84,13 @@ End
 
 Public Sub Button2_Click()
 
-   If TextBox3.Length = 0 Or TextBox4.Length = 0 Then
+   If txtVideoDirBatch.Length = 0 Or txtSubDirBatch.Length = 0 Then
       Message.Warning("You need to select the Videos and Subs directories")
    Endif
 
    'batch autosubsync:
    DisableButtons()
-   myterm.Clear
+   txaTerm.Clear
    $hAutoSubSync = Exec ["autosubsync"] For Read As "AutoSubSync"
    Do
       Wait
@@ -101,13 +101,13 @@ End
 
 Public Sub Button3_Click()
 
-   If TextBox5.Length = 0 Or TextBox6.Length = 0 Then
+   If txtVideoDirTrain.Length = 0 Or txtSubDirTrain.Length = 0 Then
       Message.Warning("You need to select the Videos and Subs directories")
    Endif
 
    'train autosubsync:
    DisableButtons()
-   myterm.Clear
+   txaTerm.Clear
    $hAutoSubSync = Exec ["autosubsync"] For Read As "AutoSubSync"
    Do
       Wait
@@ -121,16 +121,16 @@ Public Sub AutoSubSync_Read()
 
   Read #Last, sLine, -256
    'Print sLine
-   myterm.Pos = myterm.Length
-   myterm.Insert(sLine) '& gb.CrLf
-   myterm.Pos = myterm.Length
-   myterm.EnsureVisible()
+   txaTerm.Pos = txaTerm.Length
+   txaTerm.Insert(sLine) '& gb.CrLf
+   txaTerm.Pos = txaTerm.Length
+   txaTerm.EnsureVisible()
 
 End
 
 Public Sub EnableButtons()
    
-   Button1.enabled = True
+   butSync.enabled = True
    Button2.enabled = True
    Button3.enabled = True
    
@@ -138,8 +138,9 @@ End
 
 Public Sub DisableButtons()
    
-   Button1.enabled = False
+   butSync.enabled = False
    Button2.enabled = False
    Button3.enabled = False
 
 End
+

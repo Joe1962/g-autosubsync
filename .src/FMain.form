@@ -1,110 +1,184 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,67,67)
+  MoveScaled(0,0,67,70)
+  Expand = True
   Icon = Picture["gambas3.png"]
-  { TabStrip1 TabStrip
-    MoveScaled(0,0,67,26)
-    Count = 3
-    Index = 0
-    Text = ("Sync")
-    { Frame1 Frame
-      MoveScaled(1,0,65,7)
-      Text = ("Video file")
-      { ToolButton1 ToolButton
-        MoveScaled(60,2,4,4)
-        Picture = Picture["folder.png"]
-      }
-      { TextBox1 TextBox
-        MoveScaled(1,2,59,4)
-        ReadOnly = True
-      }
-    }
-    { Frame2 Frame
-      MoveScaled(1,8,65,7)
-      Text = ("Sub file")
-      { ToolButton2 ToolButton
-        MoveScaled(60,2,4,4)
-        Picture = Picture["folder.png"]
-      }
-      { TextBox2 TextBox
-        MoveScaled(1,2,59,4)
-        ReadOnly = True
-      }
-    }
-    { Button1 Button
-      MoveScaled(28,16,11,5)
+  Arrangement = Arrange.Vertical
+  Padding = 5
+  { Panel2 HBox
+    MoveScaled(0,0,68,25.7143)
+    { TabStrip1 TabStrip
+      MoveScaled(0,0,67,25.7143)
+      Expand = True
+      Arrangement = Arrange.Vertical
+      Padding = 5
+      Count = 3
+      Index = 0
       Text = ("Sync")
-    }
-    Index = 1
-    Text = ("Batch")
-    { Frame3 Frame
-      MoveScaled(1,0,65,7)
-      Text = ("Videos dir")
-      { ToolButton3 ToolButton
-        MoveScaled(60,2,4,4)
-        Picture = Picture["folder.png"]
+      { Frame1 Frame
+        MoveScaled(1,0,65,7)
+        Arrangement = Arrange.Horizontal
+        Padding = 2
+        Text = ("Video file")
+        { txtVideoSync TextBox
+          MoveScaled(1,2,59,4)
+          Expand = True
+          ReadOnly = True
+        }
+        { tbtVideoSync ToolButton
+          MoveScaled(60,2,4,4)
+          Picture = Picture["folder.png"]
+        }
       }
-      { TextBox3 TextBox
-        MoveScaled(1,2,59,4)
-        ReadOnly = True
+      { Frame2 Frame
+        MoveScaled(1,7,65,7)
+        Arrangement = Arrange.Horizontal
+        Padding = 2
+        Text = ("Sub file")
+        { txtSubSync TextBox
+          MoveScaled(1,2,59,4)
+          Expand = True
+          ReadOnly = True
+        }
+        { tbtSubSync ToolButton
+          MoveScaled(60,2,4,4)
+          Picture = Picture["folder.png"]
+        }
       }
-    }
-    { Frame4 Frame
-      MoveScaled(1,8,65,7)
-      Text = ("Subs dir")
-      { ToolButton4 ToolButton
-        MoveScaled(60,2,4,4)
-        Picture = Picture["folder.png"]
+      { pnlSeparatorSync HBox
+        MoveScaled(29,15.7143,7,1)
       }
-      { TextBox4 TextBox
-        MoveScaled(1,2,59,4)
-        ReadOnly = True
+      { Panel5 HBox
+        MoveScaled(1,17,65,5)
+        AutoResize = True
+        { Panel3 Panel
+          MoveScaled(0,1,26,4)
+          Expand = True
+        }
+        { butSync Button
+          MoveScaled(27,0,11,5)
+          Text = ("Sync")
+        }
+        { Panel4 Panel
+          MoveScaled(39,1,26,4)
+          Expand = True
+        }
       }
-    }
-    { Button2 Button
-      MoveScaled(28,16,11,5)
-      Text = ("Sync")
-    }
-    Index = 2
-    Text = ("Train")
-    { Frame5 Frame
-      MoveScaled(1,0,65,7)
-      Text = ("Videos dir")
-      { ToolButton5 ToolButton
-        MoveScaled(60,2,4,4)
-        Picture = Picture["folder.png"]
+      Index = 1
+      Text = ("Batch")
+      { Frame3 Frame
+        MoveScaled(1,0,65,7)
+        Arrangement = Arrange.Horizontal
+        Padding = 2
+        Text = ("Videos dir")
+        { txtVideoDirBatch TextBox
+          MoveScaled(1,2,59,4)
+          Expand = True
+          ReadOnly = True
+        }
+        { ToolButton3 ToolButton
+          MoveScaled(60,2,4,4)
+          Picture = Picture["folder.png"]
+        }
       }
-      { TextBox5 TextBox
-        MoveScaled(1,2,59,4)
-        ReadOnly = True
+      { Frame4 Frame
+        MoveScaled(1,7,65,7)
+        Arrangement = Arrange.Horizontal
+        Padding = 2
+        Text = ("Subs dir")
+        { txtSubDirBatch TextBox
+          MoveScaled(1,2,59,4)
+          Expand = True
+          ReadOnly = True
+        }
+        { ToolButton4 ToolButton
+          MoveScaled(60,2,4,4)
+          Picture = Picture["folder.png"]
+        }
       }
-    }
-    { Frame6 Frame
-      MoveScaled(1,8,65,7)
-      Text = ("Subs dir")
-      { ToolButton6 ToolButton
-        MoveScaled(60,2,4,4)
-        Picture = Picture["folder.png"]
+      { pnlSeparatorBatch HBox
+        MoveScaled(30,15,7,1)
       }
-      { TextBox6 TextBox
-        MoveScaled(1,2,59,4)
-        ReadOnly = True
+      { Panel1 HBox
+        MoveScaled(1,17,65,5)
+        { Panel7 Panel
+          MoveScaled(0,0,26,4)
+          Expand = True
+        }
+        { Button2 Button
+          MoveScaled(27,0,11,5)
+          Text = ("Sync")
+        }
+        { Panel8 Panel
+          MoveScaled(39,0,26,4)
+          Expand = True
+        }
       }
-    }
-    { Button3 Button
-      MoveScaled(28,16,11,5)
+      Index = 2
       Text = ("Train")
+      { Frame5 Frame
+        MoveScaled(1,0,65,7)
+        Arrangement = Arrange.Horizontal
+        Padding = 2
+        Text = ("Videos dir")
+        { txtVideoDirTrain TextBox
+          MoveScaled(1,2,59,4)
+          Expand = True
+          ReadOnly = True
+        }
+        { ToolButton5 ToolButton
+          MoveScaled(60,2,4,4)
+          Picture = Picture["folder.png"]
+        }
+      }
+      { Frame6 Frame
+        MoveScaled(1,7,65,7)
+        Arrangement = Arrange.Horizontal
+        Padding = 2
+        Text = ("Subs dir")
+        { txtSubDirTrain TextBox
+          MoveScaled(1,2,59,4)
+          Expand = True
+          ReadOnly = True
+        }
+        { ToolButton6 ToolButton
+          MoveScaled(60,2,4,4)
+          Picture = Picture["folder.png"]
+        }
+      }
+      { pnlSeparatorTrain HBox
+        MoveScaled(30,15,7,1)
+      }
+      { Panel6 HBox
+        MoveScaled(1,17,65,5)
+        { Panel9 Panel
+          MoveScaled(0,0,26,4)
+          Expand = True
+        }
+        { Button3 Button
+          MoveScaled(27,0,11,5)
+          Text = ("Train")
+        }
+        { Panel10 Panel
+          MoveScaled(39,0,26,4)
+          Expand = True
+        }
+      }
+      Index = 0
     }
-    Index = 0
   }
-  { myterm TextArea
-    MoveScaled(0,26,67,41)
-    Background = Color.Black
-    Foreground = Color.Green
+  { hbxTerm HBox
+    MoveScaled(0,29,68,41)
     Expand = True
-    ReadOnly = True
-    Wrap = True
-    Border = False
+    { txaTerm TextArea
+      MoveScaled(0,0,67,41)
+      Background = Color.Black
+      Foreground = Color.Green
+      Expand = True
+      ReadOnly = True
+      Wrap = True
+      Border = False
+    }
   }
 }

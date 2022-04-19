@@ -1,14 +1,17 @@
 # Gambas Project File 3.0
 Title=g-autosubsync
 Startup=FMain
-Version=0.0.4
+Version=0.0.1
 Component=gb.image
 Component=gb.gui
 Component=gb.form
+Description="GUI for autosubsync made in Gambas."
 TabSize=3
 Language=en_US
-Maintainer=joe1962
+Maintainer=Joe1962
+Vendor=Joe1962
 Address=joe1962@gmail.com
+Url=https://github.com/Joe1962/g-autosubsync
 License=General Public License
 PackageName=g-autosubsync-0.0.1
 RuntimeVersion="3.16"
